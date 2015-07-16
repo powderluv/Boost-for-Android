@@ -1,6 +1,6 @@
-diff -u -r boost_1_55_0/boost/asio/detail/socket_types.hpp boost_1_55_0.patched/boost/asio/detail/socket_types.hpp
---- boost_1_55_0/boost/asio/detail/socket_types.hpp
-+++ boost_1_55_0.patched/boost/asio/detail/socket_types.hpp
+diff -urN boost_1_55_0-orig/boost/asio/detail/socket_types.hpp boost_1_55_0/boost/asio/detail/socket_types.hpp
+--- boost_1_55_0-orig/boost/asio/detail/socket_types.hpp	2013-09-22 15:13:33.000000000 -0700
++++ boost_1_55_0/boost/asio/detail/socket_types.hpp	2015-07-16 16:18:10.000000000 -0700
 @@ -278,7 +278,12 @@
  typedef int socket_type;
  const int invalid_socket = -1;
@@ -14,9 +14,9 @@ diff -u -r boost_1_55_0/boost/asio/detail/socket_types.hpp boost_1_55_0.patched/
  #if defined(INET6_ADDRSTRLEN)
  const int max_addr_v6_str_len = INET6_ADDRSTRLEN + 1 + IF_NAMESIZE;
  #else // defined(INET6_ADDRSTRLEN)
-diff -u -r boost_1_55_0/boost/asio/ip/impl/address_v6.ipp boost_1_55_0.patched/boost/asio/ip/impl/address_v6.ipp
---- boost_1_55_0/boost/asio/ip/impl/address_v6.ipp
-+++ boost_1_55_0.patched/boost/asio/ip/impl/address_v6.ipp
+diff -urN boost_1_55_0-orig/boost/asio/ip/impl/address_v6.ipp boost_1_55_0/boost/asio/ip/impl/address_v6.ipp
+--- boost_1_55_0-orig/boost/asio/ip/impl/address_v6.ipp	2013-09-22 15:13:33.000000000 -0700
++++ boost_1_55_0/boost/asio/ip/impl/address_v6.ipp	2015-07-16 16:18:10.000000000 -0700
 @@ -11,6 +11,23 @@
  #ifndef BOOST_ASIO_IP_IMPL_ADDRESS_V6_IPP
  #define BOOST_ASIO_IP_IMPL_ADDRESS_V6_IPP
@@ -41,9 +41,9 @@ diff -u -r boost_1_55_0/boost/asio/ip/impl/address_v6.ipp boost_1_55_0.patched/b
  #if defined(_MSC_VER) && (_MSC_VER >= 1200)
  # pragma once
  #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
-diff -u -r boost_1_55_0/boost/config/user.hpp boost_1_55_0.patched/boost/config/user.hpp
---- boost_1_55_0/boost/config/user.hpp
-+++ boost_1_55_0.patched/boost/config/user.hpp
+diff -urN boost_1_55_0-orig/boost/config/user.hpp boost_1_55_0/boost/config/user.hpp
+--- boost_1_55_0-orig/boost/config/user.hpp	2004-01-10 04:10:00.000000000 -0800
++++ boost_1_55_0/boost/config/user.hpp	2015-07-16 16:18:10.000000000 -0700
 @@ -13,6 +13,14 @@
  //  configuration policy:
  //
@@ -59,9 +59,9 @@ diff -u -r boost_1_55_0/boost/config/user.hpp boost_1_55_0.patched/boost/config/
  // define this to locate a compiler config file:
  // #define BOOST_COMPILER_CONFIG <myheader>
  
-diff -u -r boost_1_55_0/boost/interprocess/detail/workaround.hpp boost_1_55_0.patched/boost/interprocess/detail/workaround.hpp
---- boost_1_55_0/boost/interprocess/detail/workaround.hpp	2013-09-16 19:01:45.000000000 +0200
-+++ boost_1_55_0.patched/boost/interprocess/detail/workaround.hpp	2013-11-29 17:51:33.111025389 +0100
+diff -urN boost_1_55_0-orig/boost/interprocess/detail/workaround.hpp boost_1_55_0/boost/interprocess/detail/workaround.hpp
+--- boost_1_55_0-orig/boost/interprocess/detail/workaround.hpp	2013-09-16 10:01:45.000000000 -0700
++++ boost_1_55_0/boost/interprocess/detail/workaround.hpp	2015-07-16 16:18:10.000000000 -0700
 @@ -73,7 +73,7 @@
     #endif
  
@@ -71,9 +71,9 @@ diff -u -r boost_1_55_0/boost/interprocess/detail/workaround.hpp boost_1_55_0.pa
        #define BOOST_INTERPROCESS_XSI_SHARED_MEMORY_OBJECTS
     #endif
  
-diff -u -r boost_1_55_0/boost/predef/other/endian.h boost_1_55_0.patched/boost/predef/other/endian.h
---- boost_1_55_0/boost/predef/other/endian.h
-+++ boost_1_55_0.patched/boost/predef/other/endian.h
+diff -urN boost_1_55_0-orig/boost/predef/other/endian.h boost_1_55_0/boost/predef/other/endian.h
+--- boost_1_55_0-orig/boost/predef/other/endian.h	2013-10-14 22:23:53.000000000 -0700
++++ boost_1_55_0/boost/predef/other/endian.h	2015-07-16 16:18:10.000000000 -0700
 @@ -53,7 +53,7 @@
   */
  #if !BOOST_ENDIAN_BIG_BYTE && !BOOST_ENDIAN_BIG_WORD && \
@@ -83,9 +83,23 @@ diff -u -r boost_1_55_0/boost/predef/other/endian.h boost_1_55_0.patched/boost/p
  #       include <endian.h>
  #   else
  #       if BOOST_OS_MACOS
-diff -u -r boost_1_55_0/libs/filesystem/src/operations.cpp boost_1_55_0.patched/libs/filesystem/src/operations.cpp
---- boost_1_55_0/libs/filesystem/src/operations.cpp
-+++ boost_1_55_0.patched/libs/filesystem/src/operations.cpp
+diff -urN boost_1_55_0-orig/boost/thread/pthread/thread_data.hpp boost_1_55_0/boost/thread/pthread/thread_data.hpp
+--- boost_1_55_0-orig/boost/thread/pthread/thread_data.hpp	2013-08-03 09:04:39.000000000 -0700
++++ boost_1_55_0/boost/thread/pthread/thread_data.hpp	2015-07-16 16:21:54.000000000 -0700
+@@ -26,7 +26,9 @@
+ #include <utility>
+ 
+ #if defined(__ANDROID__)
+-#include <asm/page.h> // http://code.google.com/p/android/issues/detail?id=39983
++# ifndef PAGE_SIZE
++#  define PAGE_SIZE 4096
++# endif
+ #endif
+ 
+ #include <pthread.h>
+diff -urN boost_1_55_0-orig/libs/filesystem/src/operations.cpp boost_1_55_0/libs/filesystem/src/operations.cpp
+--- boost_1_55_0-orig/libs/filesystem/src/operations.cpp	2013-08-09 02:29:39.000000000 -0700
++++ boost_1_55_0/libs/filesystem/src/operations.cpp	2015-07-16 16:18:10.000000000 -0700
 @@ -73,14 +73,14 @@
      const fs::path dot_dot_path("..");
  #   include <sys/types.h>
